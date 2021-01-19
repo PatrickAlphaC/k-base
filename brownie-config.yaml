@@ -5,10 +5,13 @@ reports:
     - SafeMath
 dependencies:
   - alphachainio/chainlink-contracts@1.1.0
+  - OpenZeppelin/openzeppelin-contracts@3.3.0
 compiler:
   solc:
+    version: 0.6.6
     remappings:
       - '@chainlink=alphachainio/chainlink-contracts@1.1.0'
+      - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@3.3.0'
 # automatically fetch contract sources from Etherscan
 autofetch_sources: True
 # set a custom mnemonic for the development network
