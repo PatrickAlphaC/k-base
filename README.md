@@ -7,6 +7,11 @@ Blockchain: Eth (ideally Optimism for gas on L2)
 Oracle: Chainlink
 Database: IPFS
 
+# Design
+
+User comes to site. Types in a question, hits "enter".
+THe FE sends a request to create the IPFS [FileCoin](https://proto.school/verifying-storage-on-filecoin/02)
+
 Any questions? Join the Alpha Chain [Discord](https://discord.gg/g6Wfc297Yy)
 
 ## License
