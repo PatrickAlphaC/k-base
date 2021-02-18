@@ -1,3 +1,8 @@
+# Where am I?
+
+I'm currently testing to see if a string can be passed via a CL node. Run `pytest` and you'll see you're running into some issue. Please fix. You have a local CL node running on the kovan testnet. Run `chainlink node start` in the environments place to start. Also, you have to start up the ipfs external adapter. Ideally, write a bash script to set all this up for you. -Patrick 
+
+
 # K-BASE
 
 Open Sourced Decentralized Living Community Run Documentation and Software Engineering Support

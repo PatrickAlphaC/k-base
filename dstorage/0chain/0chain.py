@@ -1,0 +1,21 @@
+
+import requests
+URL = 'http://one.devnet-0chain.net:31101'
+PATH = '/v1/block/get/latest_finalized'
+response = requests.get(URL + PATH)
+wallet_address = '8ed95c723c3f8d5689d25da69c60cdf31f5808d011fb405985249274a385a073'  # aka client_id
+client_key = '8d75839202cb817d72a0762442b2a64d9eb985d01c248edee2917082925f21102de494186f3ce3647fdf1344e8c5ec163da706e65de2b8adca596383b1e0ed12'  # public key
+print(response.json())
+
+
+#     curl -X POST -H "Transfer-Encoding: chunked"  -H "X-App-Client-Id: 754bb31db6f10c12244c1afa77146274b482f3a887ea1a0a4026b186d947a538" -H "X-App-Client-Key: 2950e8704535a9000c1f53a1345d2702f1d5bd5633248172c076289f9788090e5d5dfe457a4c4803f68f07979cc0dbfc9820c1b753ccfebc7a7163414cffc295" -F connection_id="3377368189" -F uploadMeta="{\"connection_id\":\"3377368189\",\"filename\":\"random.bin\",\"filepath\":\"/remote/sub/random.bin\",\"content_hash\":\"3bf03a10e7ec3becdf4742b9f0c6f135a9d9458f\",\"merkle_root\":\"dfb2221b94e861e59d38ee64775a8895abb2e93756fcbc7e62d8eacf50a4c8f8\",\"actual_hash\":\"3bf03a10e7ec3becdf4742b9f0c6f135a9d9458f\",\"actual_size\":1024,\"actual_thumb_size\":0,\"actual_thumb_hash\":\"\",\"mimetype\":\"application/octet-stream\"}" -F uploadFile=@random.bin http://localhost:5051/v1/file/upload/10edbff57467a5475ed33be98fe74dabfb244d68b64c805d6041dc7019dd9b74
+
+
+#   curl -X GET "http://one.devnet-0chain.net:31101/v1/client/get/balance?client_id=8ed95c723c3f8d5689d25da69c60cdf31f5808d011fb405985249274a385a073" -H "accept: application/json"
+
+# sample upload
+#     curl -X POST -H "Transfer-Encoding: chunked"  -H "X-App-Client-Id: 754bb31db6f10c12244c1afa77146274b482f3a887ea1a0a4026b186d947a538" -H "X-App-Client-Key: 2950e8704535a9000c1f53a1345d2702f1d5bd5633248172c076289f9788090e5d5dfe457a4c4803f68f07979cc0dbfc9820c1b753ccfebc7a7163414cffc295" -F connection_id="3377368189" -F uploadMeta="{\"connection_id\":\"3377368189\",\"filename\":\"random.bin\",\"filepath\":\"/remote/sub/random.bin\",\"content_hash\":\"3bf03a10e7ec3becdf4742b9f0c6f135a9d9458f\",\"merkle_root\":\"dfb2221b94e861e59d38ee64775a8895abb2e93756fcbc7e62d8eacf50a4c8f8\",\"actual_hash\":\"3bf03a10e7ec3becdf4742b9f0c6f135a9d9458f\",\"actual_size\":1024,\"actual_thumb_size\":0,\"actual_thumb_hash\":\"\",\"mimetype\":\"application/octet-stream\"}" -F uploadFile=@random.bin http://one.devnet-0chain.net:31101/v1/file/upload/10edbff57467a5475ed33be98fe74dabfb244d68b64c805d6041dc7019dd9b74
+
+# curl -X POST -H "Transfer-Encoding: chunked"  -H "X-App-Client-Id: 754bb31db6f10c12244c1afa77146274b482f3a887ea1a0a4026b186d947a538" -H "X-App-Client-Key: 2950e8704535a9000c1f53a1345d2702f1d5bd5633248172c076289f9788090e5d5dfe457a4c4803f68f07979cc0dbfc9820c1b753ccfebc7a7163414cffc295" -F connection_id="3377368189" -F uploadMeta="{\"connection_id\":\"3377368189\",\"filename\":\"random.bin\",\"filepath\":\"/Users/patrick/code/k-base/test.json\",\"content_hash\":\"3bf03a10e7ec3becdf4742b9f0c6f135a9d9458f\",\"merkle_root\":\"dfb2221b94e861e59d38ee64775a8895abb2e93756fcbc7e62d8eacf50a4c8f8\",\"actual_hash\":\"3bf03a10e7ec3becdf4742b9f0c6f135a9d9458f\",\"actual_size\":1024,\"actual_thumb_size\":0,\"actual_thumb_hash\":\"\",\"mimetype\":\"application/octet-stream\"}" -F uploadFile=@test.json http://one.devnet-0chain.net:31101/v1/file/upload/10edbff57467a5475ed33be98fe74dabfb244d68b64c805d6041dc7019dd9b74
+
+#     curl -X POST -H "Transfer-Encoding: chunked"  -H "X-App-Client-Id: 754bb31db6f10c12244c1afa77146274b482f3a887ea1a0a4026b186d947a538" -H "X-App-Client-Key: 2950e8704535a9000c1f53a1345d2702f1d5bd5633248172c076289f9788090e5d5dfe457a4c4803f68f07979cc0dbfc9820c1b753ccfebc7a7163414cffc295" -F connection_id="3377368189" -F uploadMeta="{\"connection_id\":\"3377368189\",\"filename\":\"random.bin\",\"filepath\":\"/Users/patrick/code/k-base/test.json\",\"content_hash\":\"3bf03a10e7ec3becdf4742b9f0c6f135a9d9458f\",\"merkle_root\":\"dfb2221b94e861e59d38ee64775a8895abb2e93756fcbc7e62d8eacf50a4c8f8\",\"actual_hash\":\"3bf03a10e7ec3becdf4742b9f0c6f135a9d9458f\",\"actual_size\":1024,\"actual_thumb_size\":0,\"actual_thumb_hash\":\"\",\"mimetype\":\"application/octet-stream\"}" -F uploadFile=@test.json http://one.devnet-0chain.net:31101/v1/file/upload/10edbff57467a5475ed33be98fe74dabfb244d68b64c805d6041dc7019dd9b74
