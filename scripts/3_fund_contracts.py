@@ -8,5 +8,5 @@ def main():
     # Get the most recent PriceFeed Object
     kbase_questions = KBaseQuestions[len(KBaseQuestions) - 1]
     interface.LinkTokenInterface(config['networks'][network.show_active()]['link_token']).transfer(
-        kbase_questions, 1000000000000000000, {'from': dev})
+        kbase_questions.address, 2000000000000000000, {'from': dev})
     print("Funded {}".format(kbase_questions.address))

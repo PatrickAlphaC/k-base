@@ -1,7 +1,7 @@
 
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.6.6;
+pragma solidity ^0.6.7;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@chainlink/contracts/src/v0.6/ChainlinkClient.sol";
@@ -30,7 +30,12 @@ contract KBaseQuestions is ChainlinkClient {
         uint256 votes;
     }
 
-    constructor(address _kbaseTokenAddress) public{
+    constructor(address _kbaseTokenAddress, address _link) public{
+        if (_link == address(0)) {
+        setPublicChainlinkToken();
+        } else {
+        setChainlinkToken(_link);
+        }
         questionIdCounter = 0;
         kbaseToken = IERC20(_kbaseTokenAddress);
         fee =  0.1 * 10 ** 18; // 0.1 LINK
@@ -51,7 +56,6 @@ contract KBaseQuestions is ChainlinkClient {
 
     function createAnswer(string memory answerText, string memory answerTitle) public returns (bytes32 requestId){
         Chainlink.Request memory request = buildChainlinkRequest(ipfsJobId, address(this), this.fulfillAnswerQuestion.selector);
-        // request.add("get", "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD");
         request.add("text_for_file", answerText);
         request.add("text_for_file_name", answerTitle);
         return sendChainlinkRequestTo(chainlinkOracle, request, fee);
