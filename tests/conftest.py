@@ -2,7 +2,7 @@
 import pytest
 import os
 
-from brownie import network, accounts, config, KBase, Contract
+from brownie import network, accounts, config, KBase, Contract, LinkToken
 
 
 @pytest.fixture()
@@ -36,3 +36,15 @@ def get_kbase_token(get_account, initial_supply):
 @pytest.fixture(scope="module")
 def initial_supply():
     return 1000000000000000000000000
+
+
+@pytest.fixture(scope="module")
+def get_link_token(get_account):
+    if network.show_active() == 'development' or 'fork' in network.show_active():
+        link_token = LinkToken.deploy({'from': get_account})
+        return link_token
+    if network.show_active() in config['networks']:
+        return Contract.from_abi(
+            "link_token", config['networks'][network.show_active()]['link_token'], LinkToken.abi)
+    else:
+        pytest.skip('Invalid network/link token specified ')

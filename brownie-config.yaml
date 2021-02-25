@@ -8,7 +8,7 @@ dependencies:
   - OpenZeppelin/openzeppelin-contracts@3.3.0
 compiler:
   solc:
-    version: 0.6.7
+    version: null
     remappings:
       - '@chainlink=alphachainio/chainlink-contracts@1.1.0'
       - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@3.3.0'
